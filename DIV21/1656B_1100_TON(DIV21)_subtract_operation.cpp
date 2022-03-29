@@ -11,10 +11,8 @@ int main(){
         int n, k, i; cin >> n >> k;
         vector<int> nums(n); map<int, int> freq;
         for (i=0; i<n; i++) cin >> nums[i], freq[nums[i]]++;
-        for (i=0; i<n; i++){
-            int complm = nums[i] - k;
-            if ((complm==nums[i] and freq[complm]>1) or (complm!=nums[i] and freq[complm])) break;
-        }
+        for (i=0; i<n; i++)
+            if (freq[nums[i] - k]) break;
         cout << (i==n?"NO":"YES") << endl;
     }
 }
